@@ -1,6 +1,7 @@
 # language: ru
 Функционал: Авторизация
 
+  @smoke
   Сценарий: Успешный вход
     Given на странице "login"
     When ввожу в "login_email" текст "test@example.com" 
