@@ -1,0 +1,11 @@
+{
+    "gherkin-lens.stepDefinitionPaths": [
+        "features/steps",
+        "steps"
+    ],
+    "gherkin-lens.featurePaths": [
+        "features"
+    ],
+    "gherkin-lens.languageServer.enabled": true,
+    "gherkin-lens.language": "ru"
+}

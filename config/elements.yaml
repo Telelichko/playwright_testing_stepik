@@ -1,0 +1,358 @@
+elements:
+  # region Login page
+  # region Tabs
+  login_tab:
+    selector: 'a[data-tab-name="login"]'
+    type: 'link'
+    description: 'Вкладка "Войти"'
+
+  registration_tab:
+    selector: 'a[data-tab-name="registration"]'
+    type: 'link'
+    description: 'Вкладка "Регистрация"'
+  # endregion
+
+  # region Inputs
+  login_email_input:
+    selector: '#id_login_email'
+    type: 'input'
+    description: 'Поле ввода E-mail'
+
+  login_password_input:
+    selector: '#id_login_password'
+    type: 'input'
+    description: 'Поле ввода Пароля'
+  # endregion
+
+  # region Buttons
+  login_submit_button:
+    selector: 'button[type="submit"]'
+    type: 'button'
+    description: 'Кнопка отправки формы входа'
+
+  vk_login_button:
+    selector: 'a[title="Войти через VK"]'
+    type: 'link'
+    description: 'Кнопка входа через ВКонтакте'
+  # endregion
+
+  # region Links
+  forgot_password_link:
+    selector: 'a:has-text("Напомнить пароль")'
+    type: 'link'
+    description: 'Ссылка восстановления пароля'
+
+  help_login_link:
+    selector: 'a:has-text("Не получается войти?")'
+    type: 'link'
+    description: 'Ссылка на статью помощи'
+  # endregion
+
+  # region Texts
+  social_login_title:
+    selector: '.social-title'
+    type: 'text'
+    description: 'Заголовок "Или войдите через социальные сети"'
+  # endregion
+
+  # endregion
+
+  # region Catalog page
+  # region Search and filters
+  catalog_search_input:
+    selector: 'input.search-form__input[placeholder="Название курса, автор или предмет"]'
+    type: 'input'
+    description: 'Поле поиска курсов'
+
+  catalog_search_clear_button:
+    selector: 'button.search-form__reset'
+    type: 'button'
+    description: 'Кнопка очистки поиска'
+
+  catalog_search_submit_button:
+    selector: 'button.search-form__submit'
+    type: 'button'
+    description: 'Кнопка "Искать"'
+
+  catalog_filters_button:
+    selector: 'button.catalog__search-all-filters-mobile'
+    type: 'button'
+    description: 'Кнопка открытия всех фильтров (мобильная)'
+
+  catalog_language_select:
+    selector: '.select-box__toggle-btn'
+    type: 'select'
+    description: 'Выпадающий список выбора языка'
+
+  catalog_language_option:
+    selector: '.select-box__option button:has-text("{value}")'
+    type: 'option'
+    description: 'Опция языка (На любом языке / На русском / На английском)'
+
+  catalog_certificate_checkbox:
+    selector: 'label.form-checkbox:has-text("С сертификатами") input[type="checkbox"]'
+    type: 'checkbox'
+    description: 'Чекбокс "С сертификатами"'
+
+  catalog_free_checkbox:
+    selector: 'label.form-checkbox:has-text("Бесплатные") input[type="checkbox"]'
+    type: 'checkbox'
+    description: 'Чекбокс "Бесплатные"'
+  # endregion
+
+  # region Tabs
+  catalog_tab:
+    selector: 'button[role="tab"]:has-text("{value}")'
+    type: 'tab'
+    description: 'Любая вкладка по тексту (В тренде, Новые курсы, Python, DevOps и т.д.)'
+
+  catalog_active_tab:
+    selector: 'li.tab__item[data-active] button[role="tab"]'
+    type: 'tab'
+    description: 'Активная (выбранная) вкладка'
+
+  catalog_tab_panel:
+    selector: 'section.catalog-block-full-course-lists__tabpanel:not([data-hidden])'
+    type: 'panel'
+    description: 'Видимая панель с контентом вкладки'
+
+  catalog_tab_panel_title:
+    selector: 'h2.catalog-block-full-course-lists__tabpanel-title'
+    type: 'text'
+    description: 'Заголовок активной панели вкладки'
+  # endregion
+
+  # region Course cards
+  catalog_course_card:
+    selector: '.course-cards__item .course-card:not([data-loading])'
+    type: 'card'
+    description: 'Карточка курса (без skeleton-загрузчиков)'
+
+  catalog_course_card_title:
+    selector: '.course-card__title'
+    type: 'link'
+    description: 'Заголовок/ссылка курса'
+
+  catalog_course_card_author:
+    selector: '.course-card__author'
+    type: 'link'
+    description: 'Ссылка на автора курса'
+
+  catalog_course_card_cover:
+    selector: '.course-card__cover'
+    type: 'image'
+    description: 'Обложка курса'
+
+  catalog_course_rating_widget:
+    selector: '.course-card__widget[data-type="rating"]'
+    type: 'widget'
+    description: 'Виджет рейтинга курса'
+
+  catalog_course_learners_widget:
+    selector: '.course-card__widget[data-type="learners"]'
+    type: 'widget'
+    description: 'Виджет количества учащихся'
+
+  catalog_course_workload_widget:
+    selector: '.course-card__widget[data-type="workload"]'
+    type: 'widget'
+    description: 'Виджет длительности курса'
+
+  catalog_course_certificate_widget:
+    selector: '.course-card__widget[data-type="certificate"]'
+    type: 'widget'
+    description: 'Иконка наличия сертификата'
+
+  catalog_course_price:
+    selector: '.course-card__price .display-price__price_default'
+    type: 'text'
+    description: 'Цена курса'
+
+  catalog_course_free_price:
+    selector: '.format-price_free'
+    type: 'text'
+    description: 'Метка "Бесплатно"'
+
+  catalog_course_discount_price:
+    selector: '.display-price__price_discount'
+    type: 'text'
+    description: 'Цена со скидкой'
+
+  catalog_course_old_price:
+    selector: '.display-price__price_regular'
+    type: 'text'
+    description: 'Старая цена (зачеркнутая)'
+
+  catalog_course_bookmark_button:
+    selector: '.course-card__bookmark'
+    type: 'button'
+    description: 'Кнопка добавления в избранное'
+
+  catalog_course_badge:
+    selector: '.course-badges__badge'
+    type: 'badge'
+    description: 'Бейдж курса (например, "2 курса", "5 курсов")'
+  # endregion
+
+  # region Horizontal scroll
+  catalog_scroll_left_button:
+    selector: '.horizontal-scroller__scroll-btn_left'
+    type: 'button'
+    description: 'Кнопка прокрутки карусели влево'
+
+  catalog_scroll_right_button:
+    selector: '.horizontal-scroller__scroll-btn_right'
+    type: 'button'
+    description: 'Кнопка прокрутки карусели вправо'
+
+  catalog_scrollable_content:
+    selector: '.horizontal-scroller__content'
+    type: 'container'
+    description: 'Контейнер прокручиваемого содержимого'
+  # endregion
+
+  # region Catalog blocks
+  catalog_block:
+    selector: '.catalog-block'
+    type: 'container'
+    description: 'Любой блок каталога'
+
+  catalog_block_title:
+    selector: '.catalog-block__title'
+    type: 'text'
+    description: 'Заголовок блока каталога'
+
+  catalog_block_by_kind:
+    selector: '.catalog-block[data-kind="{value}"]'
+    type: 'container'
+    description: 'Блок по типу (full_course_lists, promo_courses, organizations, authors, simple_course_lists, banner, recommended_courses, visited_courses)'
+
+  catalog_block_view_all_link:
+    selector: '.course-cards__dummy-card a'
+    type: 'link'
+    description: 'Ссылка "Посмотреть все" в карусели'
+  # endregion
+
+  # region Organizations
+  catalog_organization_link:
+    selector: '.catalog-block-organizations__list a[data-name="{value}"]'
+    type: 'link'
+    description: 'Ссылка на организацию (samsung, yandex_academy, vk, compscicenter, bioinf, rudn, beegeek, dvfu, mgimo, bfu, european, tsu)'
+
+  catalog_organization_logo:
+    selector: '.catalog-block-organizations__list img'
+    type: 'image'
+    description: 'Логотип организации'
+  # endregion
+
+  # region Authors
+  catalog_author_card:
+    selector: '.catalog-block-authors__list .user-card'
+    type: 'card'
+    description: 'Карточка автора курса'
+
+  catalog_author_name:
+    selector: '.user-card__title'
+    type: 'text'
+    description: 'Имя автора'
+
+  catalog_author_avatar:
+    selector: '.user-card__cover'
+    type: 'image'
+    description: 'Аватар автора'
+
+  catalog_author_rating:
+    selector: '.user-card__rating .rating-badge__average'
+    type: 'text'
+    description: 'Рейтинг автора'
+
+  catalog_author_courses_count:
+    selector: '.user-card__widget[data-type="created_courses"]'
+    type: 'widget'
+    description: 'Виджет "количество курсов"'
+
+  catalog_author_followers_count:
+    selector: '.user-card__widget[data-type="followers"]'
+    type: 'widget'
+    description: 'Виджет "количество подписчиков"'
+
+  catalog_create_course_button:
+    selector: '.catalog-block-authors__dummy-card a'
+    type: 'link'
+    description: 'Кнопка "Создать свой курс"'
+  # endregion
+
+  # region Simple courses list
+  catalog_simple_list_card:
+    selector: '.course-list-card'
+    type: 'card'
+    description: 'Карточка из простого списка (категория)'
+
+  catalog_simple_list_card_title:
+    selector: '.course-list-card__title'
+    type: 'text'
+    description: 'Название категории (Python, SQL, DevOps и т.д.)'
+
+  catalog_simple_list_card_courses_count:
+    selector: '.course-list-card__courses'
+    type: 'text'
+    description: 'Количество курсов в категории'
+
+  catalog_simple_list_card_link:
+    selector: '.course-list-card__link-wrapper'
+    type: 'link'
+    description: 'Ссылка на категорию'
+  # endregion
+
+  # region Banners and promotional blocks
+  catalog_banner:
+    selector: '.catalog-block-banner'
+    type: 'banner'
+    description: 'Рекламный баннер'
+
+  catalog_banner_cover:
+    selector: '.catalog-block-banner__cover'
+    type: 'image'
+    description: 'Изображение баннера'
+
+  catalog_promo_about_card:
+    selector: '.catalog-block-promo-courses__about-card'
+    type: 'container'
+    description: 'Промо-карточка "Автор месяца" / "Изучайте ИИ"'
+
+  catalog_promo_about_body:
+    selector: '.catalog-block-promo-courses__about-card-body'
+    type: 'text'
+    description: 'Текст описания промо-блока'
+
+  catalog_promo_about_link:
+    selector: '.catalog-block-promo-courses__about-card-footer a'
+    type: 'link'
+    description: 'Ссылка "Узнать больше" / "Больше курсов"'
+  # endregion
+
+  # region Recently viewed
+  catalog_recently_viewed_block:
+    selector: '.catalog__recently-viewed'
+    type: 'container'
+    description: 'Блок "Недавно просмотренные"'
+
+  catalog_recently_viewed_empty:
+    selector: '.catalog-block-visited-courses__empty-img'
+    type: 'image'
+    description: 'Заглушка пустого списка просмотренных'
+  # endregion
+
+  # region General / Skeleton loaders
+  catalog_skeleton_card:
+    selector: '.course-card[data-loading="lazy-pending"]'
+    type: 'skeleton'
+    description: 'Скелетон-загрузчик карточки курса'
+
+  catalog_page_title:
+    selector: 'h1.sr-only'
+    type: 'text'
+    description: 'Скрытый заголовок страницы "Каталог курсов"'
+  # endregion
+
+  # endregion

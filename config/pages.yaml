@@ -1,0 +1,11 @@
+config:
+  base_url: 'https://stepik.org'
+
+pages:
+  login:
+    path: '/login'
+    description: 'Login'
+  
+  dashboard:
+    path: '/catalog'
+    description: 'Catalog'
