@@ -1,31 +1,31 @@
 elements:
   # region Login page
   # region Tabs
-  login_tab:
+  "Вкладка_авторизация":
     selector: 'a[data-tab-name="login"]'
     type: 'link'
     description: 'Вкладка "Войти"'
 
-  registration_tab:
+  "Вкладка_регистрация":
     selector: 'a[data-tab-name="registration"]'
     type: 'link'
     description: 'Вкладка "Регистрация"'
   # endregion
 
   # region Inputs
-  login_email_input:
+  "Поле_логин":
     selector: '#id_login_email'
     type: 'input'
     description: 'Поле ввода E-mail'
 
-  login_password_input:
+  "Поле_пароль":
     selector: '#id_login_password'
     type: 'input'
     description: 'Поле ввода Пароля'
   # endregion
 
   # region Buttons
-  login_submit_button:
+  "Кнопка_войти":
     selector: 'button[type="submit"]'
     type: 'button'
     description: 'Кнопка отправки формы входа'

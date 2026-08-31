@@ -41,4 +41,4 @@ def step_click(page: Page, element_name: str):
 
 @then(parsers.parse('URL содержит "{expected}"'))
 def step_url_contains(page: Page, expected: str):
-    assert expected in page.url
+    assert expected in page.url, f'Expected value "{expected}" not found in URL "{page.url}"'
