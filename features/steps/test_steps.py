@@ -7,19 +7,12 @@ from playwright.sync_api import Page
 
 scenarios('./login.feature')
 
-PATH_CONFIG_FOLDER = '././config'
-
-with open(f'{PATH_CONFIG_FOLDER}/pages.yaml', encoding='utf-8') as f:
-    pages_data = yaml.safe_load(f)
-
-with open(f'{PATH_CONFIG_FOLDER}/elements.yaml', encoding='utf-8') as f:
-    elements_data = yaml.safe_load(f)
-
-CONFIG = {
-    'config': pages_data['config'],
-    'pages': pages_data['pages'],
-    'elements': elements_data['elements']
-}
+CONFIG = {}
+for file in Path('config').glob('*.yaml'):
+    with open(file, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+        if data and isinstance(data, dict):
+            CONFIG.update(data)
 
 BASE_URL = CONFIG['config']['base_url']
 PAGES = CONFIG['pages']

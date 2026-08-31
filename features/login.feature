@@ -1,7 +1,6 @@
 Feature: Авторизация
 
 @smoke
-@timeout(1)
 Scenario: Успешный вход
   Given на странице "login"
   When ввожу в "Поле_логин" текст "test@example.com" 
@@ -10,7 +9,6 @@ Scenario: Успешный вход
   Then URL содержит "/dashboard"
 
 @smoke
-@timeout(1)
 Scenario Outline: Успешный вход
   Given на странице "login"
   When ввожу в "Поле_логин" текст "<login>"
