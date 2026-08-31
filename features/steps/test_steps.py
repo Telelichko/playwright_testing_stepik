@@ -1,31 +1,44 @@
+import yaml
+from pathlib import Path
+import pytest
 from pytest_bdd import given, when, then, parsers, scenarios
+from playwright.sync_api import Page
 
-scenarios("./login.feature")
 
-# ---------- Steps (no async, no await) ----------
+scenarios('./login.feature')
 
-@given(parsers.parse('на странице "{url}"'))
-def step_navigate(page, url: str):
-    # Adjust base URL as needed – or use a fixture
-    page.goto(f"https://example.com/{url}")
+PATH_CONFIG_FOLDER = '././config'
 
-@when(parsers.parse('ввожу в "{element}" текст "{value}"'))
-def step_fill(page, element: str, value: str):
-    page.fill(element, value)
+with open(f'{PATH_CONFIG_FOLDER}/pages.yaml', encoding='utf-8') as f:
+    pages_data = yaml.safe_load(f)
 
-@when(parsers.parse('кликаю "{element}"'))
-def step_click(page, element: str):
-    page.click(element)
+with open(f'{PATH_CONFIG_FOLDER}/elements.yaml', encoding='utf-8') as f:
+    elements_data = yaml.safe_load(f)
 
-@then(parsers.parse('вижу "{element}"'))
-def step_visible(page, element: str):
-    assert page.is_visible(element), f"Element '{element}' is not visible"
+CONFIG = {
+    'config': pages_data['config'],
+    'pages': pages_data['pages'],
+    'elements': elements_data['elements']
+}
 
-@then(parsers.parse('в "{element}" текст "{expected}"'))
-def step_text(page, element: str, expected: str):
-    actual = page.text_content(element) or ""
-    assert expected in actual, f'Expected "{expected}" in "{actual}"'
+BASE_URL = CONFIG['config']['base_url']
+PAGES = CONFIG['pages']
+ELEMENTS = CONFIG['elements']
 
-@then(parsers.parse('URL содержит "{part}"'))
-def step_url(page, part: str):
-    assert part in page.url
+
+@given(parsers.parse('на странице "{page_name}"'))
+def step_navigate(page: Page, page_name: str):
+    page.goto(BASE_URL + PAGES[page_name]['path'])
+    page.wait_for_load_state('networkidle')
+
+@when(parsers.parse('ввожу в "{element_name}" текст "{text}"'))
+def step_fill(page: Page, element_name: str, text: str):
+    page.fill(ELEMENTS[element_name]['selector'], text)
+
+@when(parsers.parse('кликаю "{element_name}"'))
+def step_click(page: Page, element_name: str):
+    page.click(ELEMENTS[element_name]['selector'])
+
+@then(parsers.parse('URL содержит "{expected}"'))
+def step_url_contains(page: Page, expected: str):
+    assert expected in page.url
