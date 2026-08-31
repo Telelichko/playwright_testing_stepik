@@ -1,0 +1,58 @@
+elements:
+  # region Login page
+  # region Tabs
+  "Вкладка_авторизация":
+    selector: 'a[data-tab-name="login"]'
+    type: 'link'
+    description: 'Вкладка "Войти"'
+
+  "Вкладка_регистрация":
+    selector: 'a[data-tab-name="registration"]'
+    type: 'link'
+    description: 'Вкладка "Регистрация"'
+  # endregion
+
+  # region Inputs
+  "Поле_логин":
+    selector: '#id_login_email'
+    type: 'input'
+    description: 'Поле ввода E-mail'
+
+  "Поле_пароль":
+    selector: '#id_login_password'
+    type: 'input'
+    description: 'Поле ввода Пароля'
+  # endregion
+
+  # region Buttons
+  "Кнопка_войти":
+    selector: 'button[type="submit"]'
+    type: 'button'
+    description: 'Кнопка отправки формы входа'
+
+  vk_login_button:
+    selector: 'a[title="Войти через VK"]'
+    type: 'link'
+    description: 'Кнопка входа через ВКонтакте'
+  # endregion
+
+  # region Links
+  forgot_password_link:
+    selector: 'a:has-text("Напомнить пароль")'
+    type: 'link'
+    description: 'Ссылка восстановления пароля'
+
+  help_login_link:
+    selector: 'a:has-text("Не получается войти?")'
+    type: 'link'
+    description: 'Ссылка на статью помощи'
+  # endregion
+
+  # region Texts
+  social_login_title:
+    selector: '.social-title'
+    type: 'text'
+    description: 'Заголовок "Или войдите через социальные сети"'
+  # endregion
+
+  # endregion
