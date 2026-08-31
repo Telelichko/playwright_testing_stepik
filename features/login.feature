@@ -9,7 +9,7 @@ Scenario: Успешный вход
   Then URL содержит "/dashboard"
 
 @smoke
-Scenario Outline: Успешный вход
+Scenario Outline: Успешный вход множественный
   Given на странице "login"
   When ввожу в "Поле_логин" текст "<login>"
   And ввожу в "Поле_пароль" текст "<password>"
