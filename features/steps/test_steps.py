@@ -19,7 +19,7 @@ PAGES = CONFIG['pages']
 ELEMENTS = CONFIG['elements']
 
 
-@given(parsers.parse('на странице "{page_name}"'))
+@given(parsers.parse('перехожу на страницу "{page_name}"'))
 def step_navigate(page: Page, page_name: str):
     page.goto(BASE_URL + PAGES[page_name]['path'])
     page.wait_for_load_state('networkidle')
@@ -28,7 +28,7 @@ def step_navigate(page: Page, page_name: str):
 def step_fill(page: Page, element_name: str, text: str):
     page.fill(ELEMENTS[element_name]['selector'], text)
 
-@when(parsers.parse('кликаю "{element_name}"'))
+@when(parsers.parse('нажимаю на "{element_name}"'))
 def step_click(page: Page, element_name: str):
     page.click(ELEMENTS[element_name]['selector'])
 
