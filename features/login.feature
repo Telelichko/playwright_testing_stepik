@@ -1,6 +1,11 @@
 Feature: Авторизация
 
-@smoke
+@smoke @minor
+Scenario: Проверка страницы
+  Given на странице "login"
+  Then URL содержит "/login"
+
+@smoke @low
 Scenario: Успешный вход
   Given на странице "login"
   When ввожу в "Поле_логин" текст "test@example.com" 
@@ -8,7 +13,7 @@ Scenario: Успешный вход
   And кликаю "Кнопка_войти"
   Then URL содержит "/dashboard"
 
-@smoke
+@smoke @low
 Scenario Outline: Успешный вход множественный
   Given на странице "login"
   When ввожу в "Поле_логин" текст "<login>"
